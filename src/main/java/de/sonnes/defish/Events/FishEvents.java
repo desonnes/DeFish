@@ -28,12 +28,19 @@ public class FishEvents implements Listener {
         Player p = e.getPlayer();
         double random = getRandomDouble();
         double chance = plugin.getConfig().getDouble("settings.chance");
-        double chanceFinal = chance % 100.0;
+        double chanceFinal = chance / 100.0;
+        plugin.getLogger().warning("Шанс: " + chanceFinal);
 
-        if(random < chanceFinal) {
-            String itemname = plugin.getConfig().getString("message.onCatch");
-            itemname = itemname.replace("{item_name}", lm.getRandomItem().getType().name());
-            p.getInventory().addItem(lm.getRandomItem());
+
+
+        if(random <= chanceFinal) {
+
+            ItemStack finalItem = lm.getRandomItem();
+
+            String itemname = plugin.getConfig().getString("messages.onCatch");
+            plugin.getLogger().warning("Шанс сработал: " + chanceFinal);
+            itemname = itemname.replace("{item_name}", finalItem.getType().name());
+            p.getInventory().addItem(finalItem);
             p.sendMessage(Hex.color(itemname));
         }
     }
