@@ -1,0 +1,12 @@
+#
+# Plugin supports Hex colors
+# To use HEX colors u need do it like this
+# Example: #ffffffHello!
+#
+settings:
+  chance: 100 # in percent
+messages:
+  onCatch: "&6&lWow! &aYou are lucky &2Fisher &aand you caught rare item: &e{item_name}. &aCongratulations!" # Message when you caught rare drop
+  noPermission: "&cYou dont have enough permissions." # Message when you dont have permission defish.command.addloot and using command /defish addloot
+  noItemInHand: "&cYou need hold item in hand." # Message when you trying to use /defish addloot, but not holding item in main hand
+  succesfulAddingItem: "&aItem added to loot.yml succesfully." # Message when you trying to use /defish addloot, but not holding item in main hand
