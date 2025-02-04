@@ -26,14 +26,12 @@ public class ConfigManager {
 
     public static void loadConfigs() {
         try {
-            // Создаем или загружаем основной конфиг
             File configFile = new File(plugin.getDataFolder(), "loot.yml");
             if (!configFile.exists()) {
                 plugin.saveResource("loot.yml", false);
             }
             config = YamlConfiguration.loadConfiguration(configFile);
 
-            // Проверяем наличие необходимых секций
             if (!config.contains("items")) {
                 plugin.getLogger().severe("Config doesn't have 'items' section!");
             }
@@ -53,8 +51,6 @@ public class ConfigManager {
             plugin.getLogger().warning("Empty section of items in config");
             return null;
         }
-
-        // Проверка обязательного поля type
         if (!section.contains("type")) {
             plugin.getLogger().severe("Missing item type in section: " + section.getName());
             return null;
@@ -69,12 +65,10 @@ public class ConfigManager {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
 
-        // Обработка имени
         if (section.contains("name")) {
             meta.setDisplayName(section.getString("name"));
         }
 
-        // Обработка лора
         if (section.contains("lore")) {
             List<String> lore = new ArrayList<>();
             for (String line : section.getStringList("lore")) {
@@ -83,7 +77,6 @@ public class ConfigManager {
             meta.setLore(lore);
         }
 
-        // Обработка зачарований
         if (section.contains("enchantments")) {
             ConfigurationSection enchants = section.getConfigurationSection("enchantments");
             for (String enchantName : enchants.getKeys(false)) {
