@@ -24,5 +24,3 @@ Commands:
 
 Permissions:
 defish.command.addloot - Gives permission to use the /defish addloot command
-
-Translated with DeepL.com (free version)
