@@ -11,7 +11,10 @@
 defish.command.addloot - Дает право использовать команду /defish addloot
 
 
+
+
 🇺🇸 ENGLISH (Made with translator):
+
 The plugin adds to the server the ability to catch extra loot when fishing.
 The chances of each item falling out are configured individually for each item in loot.yml.
 You can customize the chance of dropping an item in config.yml [settings.chance].
